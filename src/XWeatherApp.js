@@ -26,7 +26,12 @@ const XWeatherApp = () => {
             setLoading(false);
         }
     };
-
+    const weatherDetails = [
+        { label: 'Temperature', value: `${weatherData?.current.temp_c}°C` },
+        { label: 'Humidity', value: `${weatherData?.current.humidity}%` },
+        { label: 'Condition', value: weatherData?.current.condition.text },
+        { label: 'Wind Speed', value: `${weatherData?.current.wind_kph} km/h` }
+    ];
     return (
         <div>
             <div>
@@ -45,24 +50,16 @@ const XWeatherApp = () => {
 
             {weatherData && !loading && (
                 <div className="weather-cards">
-                    <ul className="weather-card">
-                        <li>
-                            <h4>Temperature:</h4>
-                            <p>{weatherData.current.temp_c}°C</p>
-                        </li>
-                        <li>
-                            <h4>Humidity:</h4>
-                            <p>{weatherData.current.humidity}%</p>
-                        </li>
-                        <li>
-                            <h4>Condition:</h4>
-                            <p>{weatherData.current.condition.text}</p>
-                        </li>
-                        <li>
-                            <h4>Wind Speed:</h4>
-                            <p>{weatherData.current.wind_kph}km/h</p>
-                        </li>
-                    </ul>
+                    <div className="weather-card">
+                        <ul>
+                        {weatherDetails.map((detail, index) => (
+                            <li key={index}>
+                                <h4>{detail.label}:</h4>
+                                <p>{detail.value}</p>
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
                 </div>
             )}
         </div>
