@@ -54,7 +54,8 @@ input{
   border: 1px solid #e2e2e2;
   margin-right: 10px;
 }
-.weather-card {
+.weather-cards ul {
+  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -63,7 +64,7 @@ input{
   width: 80%;
 }
 
-.weather-card li{
+.weather-cards li{
   background-color: #fff;
   border-radius: 5px;
   padding: 10px;

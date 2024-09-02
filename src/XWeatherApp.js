@@ -50,9 +50,9 @@ const XWeatherApp = () => {
 
             {weatherData && !loading && (
                 <div className="weather-cards">
-                    <ul className="weather-card">
+                    <ul>
                         {weatherDetails.map((detail, index) => (
-                            <li key={index}>
+                            <li key={index} className="weather-card">
                                 <h4>{detail.label}:</h4>
                                 <p>{detail.value}</p>
                             </li>
